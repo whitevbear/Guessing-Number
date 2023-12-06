@@ -3,14 +3,19 @@
   <head>
     <title>猜數字遊戲</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
 
     <h1>猜數字遊戲</h1>
-    <p>1 到 100 之間的數字，你猜是多少？</p>
+    <p class="message">1 到 100 之間的數字，你猜是多少？</p>
     <input type="text" id="guessField" />
     <input type="submit" value="猜!" id="guessSubmit" />
-    <p class="message"></p>
+    <p class="answer">
+    <button type="button"><img src="dog01.png" class="answerbutton"> <p>答案揭曉</p></button>
+    </p>
+
+    
   </body>
   <script>
     // Random number
@@ -24,7 +29,7 @@
 
     let timeCount = 0;
     let img = document.createElement('img');
-    img.src ="https://scontent.ftpe7-2.fna.fbcdn.net/v/t39.30808-6/343356898_955188749007026_7783094404009363251_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=524774&_nc_ohc=hEDJrj1k2G8AX8ZeeQp&_nc_ht=scontent.ftpe7-2.fna&oh=00_AfBmXhVTs_XDXb7KoCBUzexVjGcN3X83OcbxzDl-v4ZK_g&oe=656B7259";
+    img.src ="meme01.jpg";
 
 
     // Event listener
@@ -46,11 +51,15 @@
 
       } else if (userGuess < targetNumber) {
         
-        message.textContent = "太小了，再試一次。";
+        message.textContent = userGuess+" 太小了，再試一次。";
         message.style.color = "red";
-      } else {
+      } else if (userGuess > targetNumber){
         
-        message.textContent = "太大了，再試一次。";
+        message.textContent =  userGuess+" 太大了，再試一次。";
+        message.style.color = "red";
+      }else {
+        
+        message.textContent = "這樣我算你錯喔";
         message.style.color = "red";
       }
 

@@ -1,0 +1,19 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+h1{
+    margin: 20px;
+}
+button{
+    width: 250px;
+    height: 250px;
+    /* background-color: transparent;  */
+    border-color: transparent;
+}
+
+.answerbutton {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
