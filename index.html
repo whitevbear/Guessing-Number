@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant-TW">
   <head>
     <title>猜數字遊戲</title>
     <meta charset="utf-8" />
   </head>
   <body>
+
     <h1>猜數字遊戲</h1>
     <p>1 到 100 之間的數字，你猜是多少？</p>
     <input type="text" id="guessField" />
@@ -21,22 +22,34 @@
     const guessSubmit = document.getElementById("guessSubmit");
     const message = document.querySelector(".message");
 
+    let timeCount = 0;
+    let img = document.createElement('img');
+    img.src ="https://scontent.ftpe7-2.fna.fbcdn.net/v/t39.30808-6/343356898_955188749007026_7783094404009363251_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=524774&_nc_ohc=hEDJrj1k2G8AX8ZeeQp&_nc_ht=scontent.ftpe7-2.fna&oh=00_AfBmXhVTs_XDXb7KoCBUzexVjGcN3X83OcbxzDl-v4ZK_g&oe=656B7259";
+
+
     // Event listener
     guessSubmit.addEventListener("click", checkGuess);
 
     // Guess function
     function checkGuess() {
       const userGuess = parseInt(guessField.value);
+      timeCount = timeCount+1;//timeCount++;
       console.log("userGuess: " + userGuess);
+      console.log("timeCount: " + timeCount);
 
       if (userGuess === targetNumber) {
-        message.textContent = `恭喜你，你猜對了！`;
+        message.textContent = "恭喜你，你猜對了！你這次猜了"+timeCount+"次哦~";
         message.style.color = "green";
         guessSubmit.disabled = true;
+        document.body.appendChild(img);
+        img.style.width = "40%";
+
       } else if (userGuess < targetNumber) {
+        
         message.textContent = "太小了，再試一次。";
         message.style.color = "red";
       } else {
+        
         message.textContent = "太大了，再試一次。";
         message.style.color = "red";
       }
@@ -46,3 +59,4 @@
     }
   </script>
 </html>
+
