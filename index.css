@@ -25,11 +25,9 @@ p .answer{
 
 section{
 
-display: flex;
-  
-justify-content: center;    
- 
-align-items: center;        
+    display: flex;
+    justify-content: center;    
+    align-items: center;        
     
 }
 .guessText {
@@ -72,4 +70,9 @@ align-items: center;
     height: 25px; 
     border-width: 2px;  
     border-radius: 150px;
+}
+#tryAgainbutton{
+    display: block;
+    margin: 20px auto;
+
 }
