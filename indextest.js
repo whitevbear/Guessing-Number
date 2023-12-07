@@ -73,8 +73,10 @@
         // tryAgain 
         document.body.appendChild(tryAgainbutton);
         // guessText.type = 'submit';
+        // 倒數計時重新開始
 
-        answerButtonimg.src = 'cat01.png';
+        setTimeout(tryAgain, 5000);
+
 
 
       } else if (userGuess === targetNumber) {
