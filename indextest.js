@@ -8,6 +8,7 @@
     const answerButton = document.getElementById("answerButton");
     const message = document.querySelector(".message");
     const theAnswer = document.querySelector(".theanswer");
+  
 
     // add limit hint
     let lowerLimit = 1;
@@ -28,7 +29,6 @@
     answerButton.addEventListener("click", askAnswer);
     tryAgainbutton.addEventListener("click", tryAgain);
     
-   
 
     // tryAgain function
     function tryAgain() {
@@ -42,11 +42,14 @@
       theAnswer.textContent = "答案揭曉";
       guessSubmit.disabled = false;
       answerButton.disabled = false;
+      answerButtonimg.src = 'dog01.png';
     }
 
      // Answer function
      function askAnswer(){
       theAnswer.textContent = targetNumber;
+      let answerButtonimg = document.getElementById("answerButtonimg");
+      answerButtonimg.src = 'blackcat.png';
     } 
 
     // Guess function
