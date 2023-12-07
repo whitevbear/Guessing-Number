@@ -71,7 +71,7 @@
 
       stopAllDelayedDisplays(); // 终止所有的 delayedDisplay
       
-      clearTimeout(stopSetTimeout);// 终止SetTimeout(GPT)
+      // clearTimeout(stopSetTimeout);// 终止SetTimeout(GPT)
 
       targetNumber = Math.floor(Math.random() * 100) + 1;
       console.log("answer: " + targetNumber);
@@ -150,9 +150,7 @@
           delayedDisplay("3", 2000, display);
           delayedDisplay("2", 3000, display);
           delayedDisplay("1", 4000, display);
-
-          stopSetTimeout = setTimeout(tryAgain, 5000); //Q: 這行是將setTimeout賦值給setTimeout,為什麼也會啟動setTimeout函式?
-          // setTimeout(tryAgain, 5000);(GPT)
+          delayedDisplay("0", 5000, tryAgain);
 
     
 
@@ -177,9 +175,7 @@
                 delayedDisplay("3", 2000, display);
                 delayedDisplay("2", 3000, display);
                 delayedDisplay("1", 4000, display);
-                
-                stopSetTimeout = setTimeout(tryAgain, 5000);
-                // setTimeout(tryAgain, 5000);(GPT)
+                delayedDisplay("0", 5000, tryAgain);
         
       } else if (userGuess < targetNumber) {
         lowerLimit=userGuess;
