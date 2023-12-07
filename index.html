@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <title>猜數字遊戲</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+    <h1>猜數字遊戲</h1>
+    <p class="message">1 到 100 之間的數字，你猜是多少？</p>
+    <input type="text" id="guessField" />
+    <input type="submit" value="猜!" id="guessSubmit" />
+    <p class="answer">
+    <button type="button"><img src="dog01.png" id="answerbutton" class="answerbutton"> <p class="theanswer">答案揭曉</p></button>
+    </p>
+
+    
+  </body>
+  <script>
+
+    // Random number
+    const targetNumber = Math.floor(Math.random() * 100) + 1;
+    console.log("answer: " + targetNumber);
+
+    // Get element
+    const guessField = document.getElementById("guessField");
+    const guessSubmit = document.getElementById("guessSubmit");
+    const message = document.querySelector(".message");
+    const theAnswer = document.querySelector(".theanswer");
+    // const answerButton = document.querySelector(".answerbutton");
+    
+
+    let timeCount = 0;
+    let img = document.createElement('img');
+    img.src ="meme01.jpg";
+
+
+    // Event listener
+    guessSubmit.addEventListener("click", checkGuess);  
+    answerbutton.addEventListener("click", askAnswer);
+    
+    // Answer function
+    function askAnswer(){
+        theAnswer.textContent = targetNumber;
+    }
+
+    // Guess function
+    function checkGuess() {
+      const previousValue = parseInt();
+      const userGuess = parseInt(guessField.value);
+      let arr=[];
+
+      timeCount = timeCount+1;//timeCount++;
+
+      console.log("userGuess: " + userGuess);
+      console.log("timeCount: " + timeCount);
+
+      if (userGuess === targetNumber) {
+        arr.push(userGuess);
+        message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
+        message.style.color = "green";
+        guessSubmit.disabled = true;
+        document.body.appendChild(img);
+        img.style.width = "200px";
+
+      } else if (userGuess < targetNumber) {
+        message.textContent = userGuess + "到" +previousValue+ "之間的數字，你猜是多少？";
+        message.style.color = "red";
+      } else if (userGuess > targetNumber){
+        
+        message.textContent =  previousValue + "到" + userGuess +"之間的數字，你猜是多少？";
+        message.style.color = "red";
+      }else {
+        
+        message.textContent = "這樣我算你錯喔";
+        message.style.color = "red";
+      }
+
+      guessField.value = "";
+      guessField.focus();
+    }
+  </script>
+</html>
+
