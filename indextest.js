@@ -1,3 +1,20 @@
+
+
+
+function  delayedDisplay(result, ms, func){
+  function func2() {func(result);}
+  setTimeout( func2 , ms) ;
+  // 以上可縮減為 setTimeout(function() {func(result);}, ms);
+}
+
+function display(result) {
+  console.log(result);
+}
+
+delayedDisplay("3", 1000, display);
+
+
+
   // Random number
     const targetNumber = Math.floor(Math.random() * 100) + 1;
     console.log("answer: " + targetNumber);
@@ -73,11 +90,16 @@
         // tryAgain 
         document.body.appendChild(tryAgainbutton);
         // guessText.type = 'submit';
-        // 倒數計時重新開始
+        // 倒數計時重新開始 setTimeout(tryAgain, 5000);
 
-        setTimeout(tryAgain, 5000);
-
-
+        // function display(string) {
+        //   console.log(string);
+        // }
+      
+        // function  delayedDisplay(string, ms, func){
+        //   setTimeout( func , ms) ;
+        // }
+        // delayedDisplay("3", 5000, display);
 
       } else if (userGuess === targetNumber) {
         message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
