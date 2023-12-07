@@ -14,24 +14,40 @@
     let upperLimit = 100;
     message.textContent = lowerLimit +"到"+ upperLimit +"之間的數字，你猜是多少？";
     
-
     let timeCount = 0;
+
     let meme01 = document.createElement('img');
     meme01.src ="meme01.jpg";
     // tryAgain 
-    let tryAgain = document.createElement('button');
-    tryAgain.textContent = "再玩一次";
-    tryAgain.className = "tryAgainbutton"
+    const tryAgainbutton = document.createElement('button');
+    tryAgainbutton.textContent = "再玩一次";
+    tryAgainbutton.className = "tryAgainbutton"
  
     // Event listener
     guessSubmit.addEventListener("click", checkGuess);  
     answerButton.addEventListener("click", askAnswer);
+    tryAgainbutton.addEventListener("click", tryAgain);
     
-    // Answer function
-    function askAnswer(){
-        theAnswer.textContent = targetNumber;
+   
+
+    // tryAgain function
+    function tryAgain() {
+      const targetNumber = Math.floor(Math.random() * 100) + 1;
+      console.log("answer: " + targetNumber);
+      lowerLimit = 1;
+      upperLimit = 100;
+      timeCount = 0;
+      message.textContent = lowerLimit +"到"+ upperLimit +"之間的數字，你猜是多少？";
+      message.style.color = "black";
+      theAnswer.textContent = "答案揭曉";
+      guessSubmit.disabled = false;
+      answerButton.disabled = false;
     }
 
+     // Answer function
+     function askAnswer(){
+      theAnswer.textContent = targetNumber;
+    } 
 
     // Guess function
       function checkGuess() {
@@ -49,8 +65,9 @@
         theAnswer.textContent = "答案是"+targetNumber;
         answerButton.disabled = true;
         // tryAgain 
-        document.body.appendChild(tryAgain);
-        guessText.type = 'submit';
+        document.body.appendChild(tryAgainbutton);
+        // guessText.type = 'submit';
+
 
       } else if (userGuess === targetNumber) {
         message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
