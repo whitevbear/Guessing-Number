@@ -1,5 +1,3 @@
-
-
 // // delayedDisplay test
 // function  delayedDisplay(result, ms, func){
 //   function func2() {func(result);}
@@ -81,12 +79,13 @@
       console.log("userGuess: " + userGuess);
       console.log("timeCount: " + timeCount);
 
-      if ( timeCount>1 ) {
+      if ( timeCount>5 ) {
         // You Failed!
         // message.textContent = "You Failed! ";
         guessSubmit.disabled = true
         theAnswer.textContent = "答案是"+targetNumber;
         answerButton.disabled = true;
+        answerButtonimg.src = 'cat01.png';
         // tryAgain 
         document.body.appendChild(tryAgainbutton);
         // guessText.type = 'submit';
