@@ -63,8 +63,6 @@
       }
       delayedDisplayTimeouts = []; // 清空数组
     }
-    // 用於终止SetTimeout(GPT)
-    let stopSetTimeout;
 
     // tryAgain function
     function tryAgain() {
@@ -151,6 +149,7 @@
           delayedDisplay("2", 3000, display);
           delayedDisplay("1", 4000, display);
           delayedDisplay("0", 5000, tryAgain);
+          
 
     
 
@@ -176,6 +175,8 @@
                 delayedDisplay("2", 3000, display);
                 delayedDisplay("1", 4000, display);
                 delayedDisplay("0", 5000, tryAgain);
+                
+               
         
       } else if (userGuess < targetNumber) {
         lowerLimit=userGuess;
