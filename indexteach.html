@@ -8,7 +8,7 @@
   <body>
 
     <h1>猜數字遊戲</h1>
-    <p class="message">1 到 100 之間的數字，你猜是多少？</p>
+    <p class="message"><span class="bottom">1</span> 到 <span class="top">100</span> 之間的數字，你猜是多少？</p>
     <input type="text" id="guessField" />
     <input type="submit" value="猜!" id="guessSubmit" />
     <p class="answer">
@@ -28,6 +28,8 @@
     const guessSubmit = document.getElementById("guessSubmit");
     const message = document.querySelector(".message");
     const theAnswer = document.querySelector(".theanswer");
+    const bottom = document.querySelector(".bottom");
+    const tOp = document.querySelector(".top");
     // const answerButton = document.querySelector(".answerbutton");
     
 
@@ -46,10 +48,8 @@
     }
 
     // Guess function
-    function checkGuess() {
-      const previousValue = parseInt();
+      function checkGuess() {
       const userGuess = parseInt(guessField.value);
-      let arr=[];
 
       timeCount = timeCount+1;//timeCount++;
 
@@ -57,7 +57,7 @@
       console.log("timeCount: " + timeCount);
 
       if (userGuess === targetNumber) {
-        arr.push(userGuess);
+
         message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
         message.style.color = "green";
         guessSubmit.disabled = true;
@@ -65,11 +65,12 @@
         img.style.width = "200px";
 
       } else if (userGuess < targetNumber) {
-        message.textContent = userGuess + "到" +previousValue+ "之間的數字，你猜是多少？";
+       
+        bottom.textContent = userGuess ;
         message.style.color = "red";
       } else if (userGuess > targetNumber){
         
-        message.textContent =  previousValue + "到" + userGuess +"之間的數字，你猜是多少？";
+        tOp.textContent = userGuess ;
         message.style.color = "red";
       }else {
         
