@@ -23,6 +23,7 @@
     const tryAgainbutton = document.createElement('button');
     tryAgainbutton.textContent = "再玩一次";
     tryAgainbutton.className = "tryAgainbutton"
+    tryAgainbutton.id = "tryAgainbutton"
  
     // Event listener
     guessSubmit.addEventListener("click", checkGuess);  
@@ -43,6 +44,8 @@
       guessSubmit.disabled = false;
       answerButton.disabled = false;
       answerButtonimg.src = 'dog01.png';
+      let elementToRemove = document.getElementById('tryAgainbutton');
+      elementToRemove.remove();
     }
 
      // Answer function
@@ -70,6 +73,8 @@
         // tryAgain 
         document.body.appendChild(tryAgainbutton);
         // guessText.type = 'submit';
+
+        answerButtonimg.src = 'cat01.png';
 
 
       } else if (userGuess === targetNumber) {

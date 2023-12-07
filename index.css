@@ -6,6 +6,13 @@ h1{
     margin: 20px;
 }
 
+.message{
+    box-sizing: border-box;
+    margin: 20px;
+    height: 20px;
+
+}
+
 p {
     background-color:transparent; 
  
@@ -63,7 +70,6 @@ align-items: center;
     margin: 1px;
     width: 100px;
     height: 25px; 
-    border-width: 2px;
-   
+    border-width: 2px;  
     border-radius: 150px;
 }
