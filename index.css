@@ -5,25 +5,65 @@ body{
 h1{
     margin: 20px;
 }
-/* button{
-    width: 250px;
-    height: 250px; */
-    /* background-color: transparent;  */
-    /* border-color: transparent;
-} */
 
- p .answer{
+p {
+    background-color:transparent; 
+ 
+}
+
+p .answer{
     background-color: transparent; 
  
 }
-button{
+
+section{
+
+display: flex;
+  
+justify-content: center;    
+ 
+align-items: center;        
+    
+}
+.guessText {
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 1px;
+    width: 100px;
+    height: 25px; 
+    color: red;   
+    border-width: 2px;
+    border-radius: 150px 0 0  150px; 
+}
+
+.guessSubmit {
+    
+    box-sizing: border-box;
+    margin: 1px;
+    width: 50px;
+    height: 25px; 
+    border-width: 2px;
+    border-radius: 0 150px 150px 0;
+}
+
+.answerButton {
     width: 300px;
     height: 300px; 
     background-color: transparent; 
     border-width: 1px;
-border-radius: 150px;
+    border-radius: 150px;
 }
- #answerbutton {
+ #answerButtonimg {
     width: 80%;
     text-align: center;
+}
+
+.tryAgainbutton {
+    box-sizing: border-box;
+    margin: 1px;
+    width: 100px;
+    height: 25px; 
+    border-width: 2px;
+   
+    border-radius: 150px;
 }
