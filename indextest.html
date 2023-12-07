@@ -4,6 +4,7 @@
     <title>test猜數字遊戲</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="index.css">
+    
   </head>
   <body>
 
@@ -17,72 +18,7 @@
 
     
   </body>
-  <script>
-
-    // Random number
-    const targetNumber = Math.floor(Math.random() * 100) + 1;
-    console.log("answer: " + targetNumber);
-
-    // Get element
-    const guessField = document.getElementById("guessField");
-    const guessSubmit = document.getElementById("guessSubmit");
-    const message = document.querySelector(".message");
-    const theAnswer = document.querySelector(".theanswer");
-    // const answerButton = document.querySelector(".answerbutton");
-
-    let bottom = 1;
-    let tOp = 100;
-    message.textContent = bottom +"到"+ tOp +"之間的數字，你猜是多少？";
-    
-
-    let timeCount = 0;
-    let img = document.createElement('img');
-    img.src ="meme01.jpg";
-
-
-    // Event listener
-    guessSubmit.addEventListener("click", checkGuess);  
-    answerbutton.addEventListener("click", askAnswer);
-    
-    // Answer function
-    function askAnswer(){
-        theAnswer.textContent = targetNumber;
-    }
-
-    // Guess function
-      function checkGuess() {
-      const userGuess = parseInt(guessField.value);
-
-      timeCount = timeCount+1;//timeCount++;
-
-      console.log("userGuess: " + userGuess);
-      console.log("timeCount: " + timeCount);
-
-      if (userGuess === targetNumber) {
-
-        message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
-        message.style.color = "green";
-        guessSubmit.disabled = true;
-        document.body.appendChild(img);
-        img.style.width = "200px";
-
-      } else if (userGuess < targetNumber) {
-        bottom=userGuess;
-        message.textContent = userGuess + "到" +tOp+ "之間的數字，你猜是多少？";
-        message.style.color = "red";
-      } else if (userGuess > targetNumber){
-        tOp=userGuess;
-        message.textContent =  bottom + "到" + userGuess +"之間的數字，你猜是多少？";
-        message.style.color = "red";
-      }else {
-        
-        message.textContent = "這樣我算你錯喔";
-        message.style.color = "red";
-      }
-
-      guessField.value = "";
-      guessField.focus();
-    }
-  </script>
+  <script src="indextest.js"></script>
+  
 </html>
 

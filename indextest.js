@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-  <head>
-    <title>Chou猜數字遊戲</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-
-    <h1>猜數字遊戲</h1>
-    <p class="message"><span class="lowerLimit">1</span> 到 <span class="upperLimit">100</span> 之間的數字，你猜是多少？</p>
-    <input type="text" id="guessField" />
-    <input type="submit" value="猜!" id="guessSubmit" />
-    <p class="answer">
-    <button type="button"><img src="dog01.png" id="answerbutton" class="answerbutton"> <p class="theanswer">答案揭曉</p></button>
-    </p>
-
-    
-  </body>
-  <script>
-
-    // Random number
+  // Random number
     const targetNumber = Math.floor(Math.random() * 100) + 1;
     console.log("answer: " + targetNumber);
 
@@ -28,9 +7,11 @@
     const guessSubmit = document.getElementById("guessSubmit");
     const message = document.querySelector(".message");
     const theAnswer = document.querySelector(".theanswer");
-    const lowerLimit = document.querySelector(".lowerLimit");
-    const upperLimit = document.querySelector(".upperLimit");
-    // const answerButton = document.querySelector(".answerbutton");
+
+    // add limit hint
+    let lowerLimit = 1;
+    let upperLimit = 100;
+    message.textContent = lowerLimit +"到"+ upperLimit +"之間的數字，你猜是多少？";
     
 
     let timeCount = 0;
@@ -47,28 +28,38 @@
         theAnswer.textContent = targetNumber;
     }
 
+   
+
+
+
+
     // Guess function
       function checkGuess() {
       const userGuess = parseInt(guessField.value);
 
-      timeCount = timeCount+1;//timeCount++;
+      timeCount = timeCount+1;//計數 也可寫成 timeCount++;
 
       console.log("userGuess: " + userGuess);
       console.log("timeCount: " + timeCount);
 
-      if (userGuess === targetNumber) {
+        if ( timeCount>5 ) {
+        // You Failed!
+        message.textContent = "You Failed! 答案是"+ targetNumber;
+        guessSubmit.disabled = true
 
+      } else if (userGuess === targetNumber) {
         message.textContent = "恭喜你，你猜對了！你這次猜了 "+timeCount+" 次哦~";
         message.style.color = "green";
         guessSubmit.disabled = true;
         document.body.appendChild(img);
         img.style.width = "200px";
-
       } else if (userGuess < targetNumber) {
-        lowerLimit.textContent = userGuess ;
+        lowerLimit=userGuess;
+        message.textContent = userGuess + "到" +upperLimit+ "之間的數字，你猜是多少？";
         message.style.color = "red";
       } else if (userGuess > targetNumber){
-        upperLimit.textContent = userGuess ;
+        upperLimit=userGuess;
+        message.textContent =  lowerLimit + "到" + userGuess +"之間的數字，你猜是多少？";
         message.style.color = "red";
       }else {
         
@@ -77,8 +68,5 @@
       }
 
       guessField.value = "";
-      guessField.focus();
+      
     }
-  </script>
-</html>
-
